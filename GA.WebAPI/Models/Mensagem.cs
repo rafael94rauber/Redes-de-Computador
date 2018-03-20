@@ -10,6 +10,5 @@ namespace GA.WebAPI.Models
         public Usuario UsuarioRecebeu { get; set; }
         public Usuario UsuarioEnviou { get; set; }
         public string ConteudoMensagem { get; set; }
-
     }
 }
