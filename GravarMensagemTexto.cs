@@ -12,7 +12,6 @@ namespace GA.WebAPI.Controllers.Actions
         public const string nomeArquivo = @"D:\Bem_AnaliseDiaria\WEB_API.txt";
         public void GravarMensagem(Mensagem mensagem)
         {
-
             StringBuilder conteudo = new StringBuilder();
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(nomeArquivo, append: true))
@@ -24,18 +23,19 @@ namespace GA.WebAPI.Controllers.Actions
             }
         }
 
-        public Dictionary<int, string> PegarMensagem(int idMensagem, int idUsuarioReceber)
+        public Dictionary<int, Mensagem> PegarMensagem(int UsuarioEnvio, int idUsuarioReceber)
         {
             var conteudoTxt = string.Empty;
-            Dictionary<int, string> mansagemRetorno = null;
+            Dictionary<int, Mensagem> mansagemRetorno = null;
 
             using (System.IO.StreamReader file = new System.IO.StreamReader(nomeArquivo))
             {
-                mansagemRetorno = new Dictionary<int, string>();
+                mansagemRetorno = new Dictionary<int, Mensagem>();
 
                 while ((conteudoTxt = file.ReadLine()) != null)
                 {
-                    mansagemRetorno.Add(idMensagem, conteudoTxt);
+                    var msg = Newtonsoft.Json.JsonConvert.DeserializeObject<Mensagem>(conteudoTxt);
+                    mansagemRetorno.Add(msg.Id, msg);
                 }
 
                 file.Close();

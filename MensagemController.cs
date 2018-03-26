@@ -1,4 +1,5 @@
-﻿using GA.WebAPI.Models;
+using GA.WebAPI.Controllers.Actions;
+using GA.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,26 +13,30 @@ namespace GA.WebAPI.Controllers
     {
         public Mensagem msg;
 
-
         // GET: api/Mensagem
-        public IEnumerable<string> Get()
+        [HttpGet]
+        [ActionName("Receber")]
+        public IEnumerable<string> Get(int UsuarioEnvio, int UsuarioReceber)
         {
-            return new string[] { "value1", "value2" };
+            GravarMensagemTexto adoMensgem = new GravarMensagemTexto();
+            var listaMensagens = adoMensgem.PegarMensagem(UsuarioEnvio, UsuarioReceber);
+            List<string> retorno = new List<string>();
+
+            foreach (var item in listaMensagens)
+            {
+                if (item.Value.UsuarioEnviou.Id == UsuarioEnvio &&
+                    item.Value.UsuarioRecebeu.Id == UsuarioReceber)
+                {
+                    retorno.Add(item.Value.ConteudoMensagem);
+                }
+            }
+
+            return retorno.ToList();
         }
 
-        // GET: api/Mensagem/5
-        public string Get(int idMensagem, int idUsuarioReceber)
-        {
-            Dictionary<int, string> teste = new Dictionary<int, string>();
-
-
-
-            Newtonsoft.Json.JsonConvert.DeserializeObject<Mensagem>(teste);
-
-            return "value";
-        }
-        
-        // POST: api/Mensagem
+        // POST: api/Mensagem/1/2/'mensagem de texto'
+        [HttpPost]
+        [ActionName("Enviar")]
         public void Post(int UsuarioEnvio, int UsuarioReceber, string conteudoMensagem)
         {
             Mensagem msg = new Mensagem
@@ -43,6 +48,8 @@ namespace GA.WebAPI.Controllers
             };
 
             //salvar a mensagem
+            GravarMensagemTexto adoMensgem = new GravarMensagemTexto();
+            adoMensgem.GravarMensagem(msg);
         }
     }
 }
