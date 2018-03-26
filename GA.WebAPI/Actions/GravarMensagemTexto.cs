@@ -24,21 +24,21 @@ namespace GA.WebAPI.Controllers.Actions
             }
         }
 
-        public List<string> PegarMensagem(int UsuarioEnvio, int UsuarioReceber)
+        public Dictionary<int, Mensagem> PegarMensagem(int UsuarioEnvio, int UsuarioReceber)
         {
             var conteudoTxt = string.Empty;
-            List<string> mansagemRetorno = null;
+            Dictionary<int, Mensagem> mansagemRetorno = null;
 
             using (System.IO.StreamReader file = new System.IO.StreamReader(nomeArquivo))
             {
-                mansagemRetorno = new List<string>();
+                mansagemRetorno = new Dictionary<int, Mensagem>();
 
                 while ((conteudoTxt = file.ReadLine()) != null)
                 {
                     var msg = Newtonsoft.Json.JsonConvert.DeserializeObject<Mensagem>(conteudoTxt);
                     if (msg.UsuarioEnviou.Id == UsuarioEnvio && msg.UsuarioRecebeu.Id == UsuarioReceber)
                     {
-                        mansagemRetorno.Add(conteudoTxt);
+                        mansagemRetorno.Add(msg.Id, msg);
                     }
                 }
                 
