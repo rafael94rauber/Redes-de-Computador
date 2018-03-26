@@ -1,4 +1,4 @@
-﻿using GA.WebAPI.Controllers.Actions;
+using GA.WebAPI.Controllers.Actions;
 using GA.WebAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,8 @@ namespace GA.WebAPI.Controllers
 {
     public class MensagemController : ApiController
     {
+        public Mensagem msg;
+
         // GET: api/Mensagem
         [HttpGet]
         [ActionName("Receber")]
