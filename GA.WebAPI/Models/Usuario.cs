@@ -12,7 +12,7 @@ namespace GA.WebAPI.Models
 
         public Usuario RetornarUsuario(int id)
         {
-            return new Usuario { Id = 1 + id };
+            return new Usuario { Id = id, Nome = $"Usuario - {id}" };
         }
     }
 }
