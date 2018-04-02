@@ -11,16 +11,24 @@ namespace GA.WebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
             
+            ////ROTA PARA ENVIAR/RECEBER MENSAGEM
+            //config.Routes.MapHttpRoute(
+            //        name: "DefaultApi",
+            //        routeTemplate: "api/{controller}/{action}/{UsuarioEnvio}/{UsuarioReceber}/{conteudoMensagem}",
+            //        defaults: new {
+            //            UsuarioEnvio = RouteParameter.Optional,
+            //            UsuarioReceber = RouteParameter.Optional,
+            //            conteudoMensagem = RouteParameter.Optional
+            //        }
+            // );
+
             //ROTA PARA ENVIAR/RECEBER MENSAGEM
             config.Routes.MapHttpRoute(
                     name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{action}/{UsuarioEnvio}/{UsuarioReceber}/{conteudoMensagem}",
-                    defaults: new {
-                        UsuarioEnvio = RouteParameter.Optional,
-                        UsuarioReceber = RouteParameter.Optional,
-                        conteudoMensagem = RouteParameter.Optional
-                    }
+                    routeTemplate: "api/{controller}/{action}/{mensagem}"
              );
+
+            //MensagemRequest mensagem
         }
     }
 }

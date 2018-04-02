@@ -1,8 +1,7 @@
+using GA.EntidadesRequest;
 using GA.WebAPI.Controllers.Actions;
 using GA.WebAPI.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace GA.WebAPI.Controllers
@@ -12,10 +11,10 @@ namespace GA.WebAPI.Controllers
         // GET: api/Mensagem
         [HttpGet]
         [ActionName("Receber")]
-        public IHttpActionResult Get(int UsuarioEnvio, int UsuarioReceber)
+        public IHttpActionResult Get(MensagemRequest mensagem)
         {
             GravarMensagemTexto adoMensgem = new GravarMensagemTexto();
-            var listaRetorno = adoMensgem.PegarMensagem(UsuarioEnvio, UsuarioReceber);
+            var listaRetorno = adoMensgem.PegarMensagem(mensagem.UsuarioEnvio, mensagem.UsuarioReceber);
 
             //issue Apagar mensagens recebidas #6 ************************
 
@@ -25,14 +24,14 @@ namespace GA.WebAPI.Controllers
         // POST: api/Mensagem/1/2/'mensagem de texto': exemplo de post
         [HttpPost]
         [ActionName("Enviar")]
-        public IHttpActionResult Post(int UsuarioEnvio, int UsuarioReceber, string conteudoMensagem)
+        public IHttpActionResult Post(MensagemRequest mensagem)
         {
             //Gerar ID para mensagens enviadas #5 ************************
             Mensagem msg = new Mensagem
             {
-                ConteudoMensagem = conteudoMensagem,
-                UsuarioEnviou = new Usuario().RetornarUsuario(UsuarioEnvio),
-                UsuarioRecebeu = new Usuario().RetornarUsuario(UsuarioReceber),
+                ConteudoMensagem = mensagem.ConteudoMensagem,
+                UsuarioEnviou = new Usuario().RetornarUsuario(mensagem.UsuarioEnvio),
+                UsuarioRecebeu = new Usuario().RetornarUsuario(mensagem.UsuarioReceber),
                 Id = new Random().Next(1000)
             };
 
@@ -43,7 +42,8 @@ namespace GA.WebAPI.Controllers
             // retorna um objeto em forma de estrutura json
             // estudar uma forma de retornar uma classe que seja util retornar
             //issue Classe para retornar post das mensagens #7 ************************
-            return Ok(msg);
+            //return Ok(msg);
+            return Ok();
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace GA.WebAPI.Models
+﻿namespace GA.WebAPI.Models
 {
     public class Usuario
     {

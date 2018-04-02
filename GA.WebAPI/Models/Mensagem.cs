@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-
-namespace GA.WebAPI.Models
+﻿namespace GA.WebAPI.Models
 {
     public class Mensagem
     {
