@@ -75,7 +75,6 @@ namespace GA.Comunicacao
             var response = await client.PostAsJsonAsync(actionEnviarMensagem, mensagem);
             var resultado = await response.Content.ReadAsAsync<string>();
 
-
             //using (var client = new HttpClient())
             //{
 

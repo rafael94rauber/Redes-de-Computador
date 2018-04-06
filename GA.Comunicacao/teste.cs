@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GA.Comunicacao
 {
-    class teste
+    class Teste
     {
         #region snippet_prod
         public class Product
