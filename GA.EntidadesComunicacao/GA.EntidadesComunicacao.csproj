@@ -7,8 +7,8 @@
     <ProjectGuid>{66952E71-5CD6-4AC2-9D3F-6ED9A4B99669}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GA.EntidadesRequest</RootNamespace>
-    <AssemblyName>GA.EntidadesRequest</AssemblyName>
+    <RootNamespace>GA.EntidadesComunicacao</RootNamespace>
+    <AssemblyName>GA.EntidadesComunicacao</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MensagemRequest.cs" />
-    <Compile Include="MensagemResponse.cs" />
+    <Compile Include="Receber Response\MensagemDTO.cs" />
+    <Compile Include="Receber Response\UsuarioDTO.cs" />
+    <Compile Include="Envio Request\MensagemReceber.cs" />
+    <Compile Include="Envio Request\MensagemEnviar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioResponse.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.Aplicativo", "GA.Aplicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.Comunicacao", "GA.Comunicacao\GA.Comunicacao.csproj", "{2F2CBB73-4028-4515-93AD-474DD95CBCE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.EntidadesRequest", "GA.EntidadesRequest\GA.EntidadesRequest.csproj", "{66952E71-5CD6-4AC2-9D3F-6ED9A4B99669}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GA.EntidadesComunicacao", "GA.EntidadesComunicacao\GA.EntidadesComunicacao.csproj", "{66952E71-5CD6-4AC2-9D3F-6ED9A4B99669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

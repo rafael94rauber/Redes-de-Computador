@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GA.EntidadesRequest
+namespace GA.EntidadesComunicacao
 {
-    public class MensagemRequest
+    public class MensagemEnviar
     {
-        public int UsuarioEnvio { get; set; }
-        public int UsuarioReceber { get; set; }
+        public int UsuarioEnviou { get; set; }
+        public int UsuarioRecebeu { get; set; }        
         public string ConteudoMensagem { get; set; }
     }
 }

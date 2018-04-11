@@ -1,6 +1,6 @@
-﻿namespace GA.WebAPI.Models
+﻿namespace GA.EntidadesComunicacao
 {
-    public class Usuario
+    public class UsuarioDTO
     {
         public int Id { get; set; }
         public string Nome { get; set; }        
