@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GA.EntidadesRequest\GA.EntidadesRequest.csproj">
+    <ProjectReference Include="..\GA.EntidadesComunicacao\GA.EntidadesComunicacao.csproj">
       <Project>{66952e71-5cd6-4ac2-9d3f-6ed9a4b99669}</Project>
-      <Name>GA.EntidadesRequest</Name>
+      <Name>GA.EntidadesComunicacao</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

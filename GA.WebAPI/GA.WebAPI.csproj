@@ -112,7 +112,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\GravarMensagemTexto.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\MensagemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -121,6 +120,8 @@
     <Compile Include="Models\Mensagem.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\MensagemService.cs" />
+    <Compile Include="Service\UsuarioService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -136,9 +137,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GA.EntidadesRequest\GA.EntidadesRequest.csproj">
+    <ProjectReference Include="..\GA.EntidadesComunicacao\GA.EntidadesComunicacao.csproj">
       <Project>{66952e71-5cd6-4ac2-9d3f-6ed9a4b99669}</Project>
-      <Name>GA.EntidadesRequest</Name>
+      <Name>GA.EntidadesComunicacao</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -152,7 +153,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50772</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

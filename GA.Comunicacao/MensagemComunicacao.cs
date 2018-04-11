@@ -3,94 +3,54 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using System.Collections.Generic;
-using System.Linq;
-using GA.EntidadesRequest;
+using GA.EntidadesComunicacao;
 
 namespace GA.Comunicacao
 {
     public class MensagemComunicacao
     {
-        private const string uriWebApi = "http://localhost:38104/";
+        private const string uriWebApi = "http://localhost:50772/";
         private const string actionReceberMensagem = "api/Mensagem/Receber/";
         private const string actionEnviarMensagem = "api/Mensagem/Enviar/";
+        private static HttpClient conexaoCliente;
 
-
-
-
-        public MensagemComunicacao()
-        {          
-                        GetRequest().Wait();
-        }
-
-        public async Task<List<MensagemResponse>> GetRequest()
+        /// <summary>
+        /// abre a conexao com a web-api
+        /// </summary>
+        private static void AbreConexaoWeb()
         {
-            MensagemRequest mensagem = new MensagemRequest
-            {
-                UsuarioEnvio = 1,
-                UsuarioReceber = 2
-            };
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(uriWebApi);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response;
-                response = await client.GetAsync($"{actionReceberMensagem}{mensagem}");
-                if (response.IsSuccessStatusCode)
-                {
-                    MensagemResponse[] mensagens = await response.Content.ReadAsAsync<MensagemResponse[]>();
-                    return mensagens.ToList();
-                }
-            }
-            return null;
-        }
-
-        static async Task Post(string ID)
-        {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://localhost:37641/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-            var input = new { oldWord = "begin", newWord = "end", blurbText = "begin test begin" };
-            Console.WriteLine(client.PostAsJsonAsync("api/templateService/ReplaceBlurbText", input).Result.Content.ReadAsAsync<string>().Result);
-            Console.ReadLine();
-
-            MensagemRequest mensagem = new MensagemRequest
-            {
-                UsuarioEnvio = 1,
-                UsuarioReceber = 2,
-                ConteudoMensagem = "Conteudo da mensagem enviada da dll de comunicacao"
-            };
-
-            HttpClient client2 = new HttpClient
+            conexaoCliente = new HttpClient
             {
                 BaseAddress = new Uri(uriWebApi)
             };
+            conexaoCliente.DefaultRequestHeaders.Accept.Clear();
+            conexaoCliente.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
 
-            client2.DefaultRequestHeaders.Accept.Clear();
-            client2.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        public static async Task<List<MensagemDTO>> Enviar(MensagemEnviar mensagem)
+        {
+            AbreConexaoWeb();
 
-            var response = await client.PostAsJsonAsync(actionEnviarMensagem, mensagem);
-            var resultado = await response.Content.ReadAsAsync<string>();
+            //post na metodo 'Enviar''da web-api
+            var respostaPost = await conexaoCliente.PostAsJsonAsync(actionEnviarMensagem, mensagem);
 
-            //using (var client = new HttpClient())
-            //{
+            //retorno da web-abi
+            var ConteudoPost = await respostaPost.Content.ReadAsAsync<List<MensagemDTO>>();
 
-            // client.DefaultRequestHeaders.Accept.Clear();
-            // client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            // HttpResponseMessage response = await client.PostAsJsonAsync(actionEnviarMensagem, mensagem);
+            return ConteudoPost;
+        }
 
-            //    if (response.IsSuccessStatusCode)
-            //    {
-            //        HttpResponseMessage result = await response.Content.ReadAsAsync<bool>();
-            //        if (result)
-            //            Console.WriteLine("Report Submitted");
-            //        else
-            //            Console.WriteLine("An error has occurred");
-            //    }
-            //}
+        public static async Task<List<MensagemDTO>> Receber(MensagemReceber mensagem)
+        {
+            AbreConexaoWeb();
+
+            //post na metodo 'Enviar''da web-api
+            var respostaPost = await conexaoCliente.PostAsJsonAsync(actionReceberMensagem, mensagem);
+
+            //retorno da web-abi
+            var ConteudoPost = await respostaPost.Content.ReadAsAsync<List<MensagemDTO>>();
+
+            return ConteudoPost;
         }
     }
 }

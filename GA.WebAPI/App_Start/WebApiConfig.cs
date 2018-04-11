@@ -25,10 +25,8 @@ namespace GA.WebAPI
             //ROTA PARA ENVIAR/RECEBER MENSAGEM
             config.Routes.MapHttpRoute(
                     name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{action}/{mensagem}"
+                    routeTemplate: "api/{controller}/{action}"
              );
-
-            //MensagemRequest mensagem
         }
     }
 }
