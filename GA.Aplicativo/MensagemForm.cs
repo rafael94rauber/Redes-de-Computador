@@ -48,14 +48,13 @@ namespace GA.Aplicativo
                 UsuarioEnviou = UsuarioEnviar,
                 UsuarioRecebeu = UsuarioReceber
             };
-
-            Task<List<MensagemDTO>> retornoWeb;
-            retornoWeb = Comunicacao.MensagemComunicacao.Enviar(mensagemEnviarDados);
+            
+            var retornoWeb = Comunicacao.MensagemComunicacao.Enviar(mensagemEnviarDados);
 
             do
             {
                 Thread.Sleep(100);
-            } while (retornoWeb.IsCompleted);
+            } while (!retornoWeb.IsCompleted);
 
             CarregarMensagensEnviadas(mensagemEnviarDados);
             CarregarMensagensRecebidas(retornoWeb.Result);
@@ -68,14 +67,13 @@ namespace GA.Aplicativo
                 UsuarioEnviou = UsuarioEnviar,
                 UsuarioRecebeu = UsuarioReceber
             };
-
-            Task<List<MensagemDTO>> retornoWeb;
-            retornoWeb = Comunicacao.MensagemComunicacao.Receber(mensagemReceberDados);
+            
+            var retornoWeb = Comunicacao.MensagemComunicacao.Receber(mensagemReceberDados);
 
             do
             {
                 Thread.Sleep(100);
-            } while (retornoWeb.IsCompleted);
+            } while (!retornoWeb.IsCompleted);
 
             CarregarMensagensRecebidas(retornoWeb.Result);
         }
