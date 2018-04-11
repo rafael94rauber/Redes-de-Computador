@@ -11,8 +11,11 @@ namespace GA.Aplicativo
     public partial class MensagemForm : Form
     {
         public int UsuarioEnviar { get; set; }
+
         public string UsuarioNomeEnviar { get; set; }
+
         public int UsuarioReceber { get; set; }        
+
         public string UsuarioNomeReceber { get; set; }
 
         private StringBuilder MensagensEnviadas = new StringBuilder();
@@ -39,7 +42,7 @@ namespace GA.Aplicativo
                 return;
             }
 
-            var mensagemEnviarDados = new EntidadesComunicacao.MensagemEnviar
+            var mensagemEnviarDados = new MensagemEnviar
             {
                 ConteudoMensagem = TxtEnviar.Text,
                 UsuarioEnviou = UsuarioEnviar,
@@ -47,20 +50,34 @@ namespace GA.Aplicativo
             };
 
             Task<List<MensagemDTO>> retornoWeb;
-            retornoWeb = GA.Comunicacao.MensagemComunicacao.Enviar(mensagemEnviarDados);
+            retornoWeb = Comunicacao.MensagemComunicacao.Enviar(mensagemEnviarDados);
 
             do
             {
                 Thread.Sleep(100);
             } while (retornoWeb.IsCompleted);
 
-            CarregarMensagensEnviadas(TxtEnviar.Text);
+            CarregarMensagensEnviadas(mensagemEnviarDados);
             CarregarMensagensRecebidas(retornoWeb.Result);
         }
 
         private void BtnReceber_Click(object sender, EventArgs e)
         {
+            var mensagemReceberDados = new MensagemReceber
+            {
+                UsuarioEnviou = UsuarioEnviar,
+                UsuarioRecebeu = UsuarioReceber
+            };
 
+            Task<List<MensagemDTO>> retornoWeb;
+            retornoWeb = Comunicacao.MensagemComunicacao.Receber(mensagemReceberDados);
+
+            do
+            {
+                Thread.Sleep(100);
+            } while (retornoWeb.IsCompleted);
+
+            CarregarMensagensRecebidas(retornoWeb.Result);
         }
 
         private void CarregarMensagensRecebidas(List<MensagemDTO> mensagens)
@@ -74,11 +91,19 @@ namespace GA.Aplicativo
 
                 MensagensRecebidas.AppendLine(item.ConteudoMensagem);
             }
+
+            TxtRecebidas.Text = string.Empty;
+            TxtRecebidas.Text = MensagensRecebidas.ToString();
         }
 
-        private void CarregarMensagensEnviadas(string novaMensagem)
+        private void CarregarMensagensEnviadas(MensagemEnviar mensagemEnviarDados)
         {
-            MensagensEnviadas.AppendLine(novaMensagem);
+            if (mensagemEnviarDados.UsuarioEnviou == UsuarioEnviar && mensagemEnviarDados.UsuarioRecebeu == UsuarioReceber)
+            {
+                return;
+            }
+
+            MensagensEnviadas.AppendLine(mensagemEnviarDados.ConteudoMensagem);
 
             TxtEnviadas.Text = string.Empty;
             TxtEnviadas.Text = MensagensEnviadas.ToString();

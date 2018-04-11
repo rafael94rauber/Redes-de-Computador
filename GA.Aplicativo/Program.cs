@@ -40,7 +40,6 @@ namespace GA.Aplicativo
             }
 
             formView.Text = $"Usuario: {formView.UsuarioNomeEnviar}";
-
             
             Application.Run(formView);
         }
