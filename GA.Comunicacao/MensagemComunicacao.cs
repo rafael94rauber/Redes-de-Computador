@@ -35,7 +35,7 @@ namespace GA.Comunicacao
             var respostaPost = await conexaoCliente.PostAsJsonAsync(actionEnviarMensagem, mensagem);
 
             //retorno da web-abi
-            var ConteudoPost = await respostaPost.Content.ReadAsAsync<List<MensagemDTO>>();
+            var ConteudoPost = await respostaPost.Content.ReadAsAsync<List<MensagemDTO>>();            
 
             return ConteudoPost;
         }
@@ -52,5 +52,39 @@ namespace GA.Comunicacao
 
             return ConteudoPost;
         }
+
+        //private async Task ProcessWebsocketSession(AspNetWebSocketContext context, MensagemEnviar mensagemEnviar)
+        //{            
+        //    var ws = context.WebSocket;
+
+        //    new Task(async () =>
+        //    {
+        //        while (true)
+        //        {
+        //            // MUST read if we want the state to get updated...
+        //            var result = await ws.ReceiveAsync(System.Text.Encoding.UTF8.GetBytes(mensagemEnviar), CancellationToken.None);
+
+        //            if (ws.State != WebSocketState.Open)
+        //            {
+        //                break;
+        //            }
+        //        }
+        //    }).Start();
+
+        //    while (true)
+        //    {
+        //        if (ws.State != WebSocketState.Open)
+        //        {
+        //            break;
+        //        }
+        //        else
+        //        {
+        //            byte[] binaryData = { 0xde, 0xad, 0xbe, 0xef, 0xca, 0xfe };
+        //            var segment = new ArraySegment<byte>(binaryData);
+        //            await ws.SendAsync(segment, WebSocketMessageType.Binary,
+        //                true, CancellationToken.None);
+        //        }
+        //    }
+        //}
     }
 }
