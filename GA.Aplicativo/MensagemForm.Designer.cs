@@ -34,7 +34,7 @@
             this.TxtRecebidas = new System.Windows.Forms.TextBox();
             this.LblUsuarioReceber = new System.Windows.Forms.Label();
             this.TxtEnviar = new System.Windows.Forms.TextBox();
-            this.Lbl3 = new System.Windows.Forms.Label();
+            this.lblEnviar = new System.Windows.Forms.Label();
             this.BtnReceber = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -92,14 +92,14 @@
             this.TxtEnviar.Size = new System.Drawing.Size(628, 98);
             this.TxtEnviar.TabIndex = 5;
             // 
-            // Lbl3
+            // lblEnviar
             // 
-            this.Lbl3.AutoSize = true;
-            this.Lbl3.Location = new System.Drawing.Point(12, 457);
-            this.Lbl3.Name = "Lbl3";
-            this.Lbl3.Size = new System.Drawing.Size(88, 13);
-            this.Lbl3.TabIndex = 6;
-            this.Lbl3.Text = "Nova Mensagem";
+            this.lblEnviar.AutoSize = true;
+            this.lblEnviar.Location = new System.Drawing.Point(12, 457);
+            this.lblEnviar.Name = "lblEnviar";
+            this.lblEnviar.Size = new System.Drawing.Size(88, 13);
+            this.lblEnviar.TabIndex = 6;
+            this.lblEnviar.Text = "Nova Mensagem";
             // 
             // BtnReceber
             // 
@@ -115,9 +115,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 641);
+            this.ClientSize = new System.Drawing.Size(662, 641);
             this.Controls.Add(this.BtnReceber);
-            this.Controls.Add(this.Lbl3);
+            this.Controls.Add(this.lblEnviar);
             this.Controls.Add(this.TxtEnviar);
             this.Controls.Add(this.LblUsuarioReceber);
             this.Controls.Add(this.TxtRecebidas);
@@ -125,7 +125,7 @@
             this.Controls.Add(this.TxtEnviadas);
             this.Controls.Add(this.BtnEnviar);
             this.Name = "MensagemForm";
-            this.Text = "Usuario: ";
+            this.Text = "Mensagens Enviadas De - Para";
             this.Load += new System.EventHandler(this.MensagemForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -140,7 +140,7 @@
         private System.Windows.Forms.TextBox TxtRecebidas;
         private System.Windows.Forms.Label LblUsuarioReceber;
         private System.Windows.Forms.TextBox TxtEnviar;
-        private System.Windows.Forms.Label Lbl3;
+        private System.Windows.Forms.Label lblEnviar;
         private System.Windows.Forms.Button BtnReceber;
     }
 }
