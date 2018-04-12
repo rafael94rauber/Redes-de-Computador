@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GA.EntidadesComunicacao;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,30 +18,37 @@ namespace GA.Aplicativo
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            UsuarioDTO usuarioLoagoAplicativo = new UsuarioDTO();
+            UsuarioDTO usuarioForaAplicativo = new UsuarioDTO();
+            
             // ler as propriedades do programa CMD/propriedades vs
             var formView = new MensagemForm();
+
             if (args.Length > 0)
             {
-                formView.UsuarioEnviar = Convert.ToInt32(args[0]);
+                usuarioLoagoAplicativo.Id = Convert.ToInt32(args[0]);
             }
             
             if (args.Length > 2)
             {
-                formView.UsuarioNomeEnviar = args[1];
+                usuarioLoagoAplicativo.Nome = args[1];
             }
 
             if (args.Length > 1)
             {
-                formView.UsuarioReceber = Convert.ToInt32(args[2]);
+                usuarioForaAplicativo.Id = Convert.ToInt32(args[2]);
             }
 
             if (args.Length > 3)
             {
-                formView.UsuarioNomeReceber = args[3];
+                usuarioForaAplicativo.Nome = args[3];
             }
 
-            formView.Text = $"Usuario: {formView.UsuarioNomeEnviar}";
-            
+            formView.Text = $"Mensagens Enviadas do Usuario: {usuarioLoagoAplicativo.Nome};" +
+                $" para o Usurio: {usuarioForaAplicativo.Nome}";
+
+            formView.UsuarioLogadoAplicativo = usuarioLoagoAplicativo;
+            formView.UsuarioForaAplicativo = usuarioForaAplicativo;            
             Application.Run(formView);
         }
     }

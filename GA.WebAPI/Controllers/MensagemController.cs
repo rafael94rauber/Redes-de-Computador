@@ -34,17 +34,18 @@ namespace GA.WebAPI.Controllers
             {
                 return BadRequest("Usuario nao pode enviar mensagem para ele mesmo");
             }
+
             //salvar a mensagem
             MensagemService.GravarMensagem(mensagem);
 
             // retorna um objeto em forma de estrutura json
             // estudar uma forma de retornar uma classe que seja util retornar
             //issue Classe para retornar post das mensagens #7 ************************
-            //return Ok(estruturaRetorno);
+            
             return Receber(new MensagemReceber
             {
-                UsuarioEnviou = mensagem.UsuarioEnviou,
-                UsuarioRecebeu = mensagem.UsuarioRecebeu
+                UsuarioEnviou = mensagem.UsuarioRecebeu,
+                UsuarioRecebeu = mensagem.UsuarioEnviou                
             });
         }
     }
