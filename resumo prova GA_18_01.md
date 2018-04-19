@@ -82,5 +82,122 @@
     - Fisica: Bit "nos fios", trafegando a informacao na internet ate o destinatario 
       
 
+#Aula 2
+  
+  * Protocolos
+      - Conjunto de regras que determinan como devem ocorrer a comunicacao entre duas estacoes em uma rede 
+  
+  * Camadas de protocolos 
+      - Host 
+      - Roteadores 
+      - Enlaces 
+      - Aplicacoes 
+      - Protocolos 
+      - Hardware/Software 
+      
+  * Modelo de Referencia camada OSI
+      - Nao obteve exito comercial 
+      - Modelo Internet cresceu mais rapidamente 
+          - Mais simples e eficiente, abrange um numero maaior de aplicacoes 
+      - Modelo osi é muito complexo 
+      - Nem sempre precisamos utilizar todas as camadas de aplicacao 
+      - Software de rede nao deve exigir tantos requisitos para a sua utilizacao 
+  
+      - Camada OSI estrutura
+        - Nivel Fisico 
+            - Transmissao de bits atraves do canal de comunicacao 
+            - Move os bits atraves do meio de transmissao 
+      
+        - Nivel de Enlace 
+            - Transmite/Recebe conjunto de bits 
+            - Detecta/corrige erros do meio de transmissao 
+            - Implementa parte em software, parte em firmware(placa de rede) 
+          
+        - Nivel de Rede 
+            - Permite que pacotes(frames) sejam enviados a outros dispositivos que nao estejam na mesma rede 
+                - Roteamento 
+                - Localizacao de computadores na internet 
+        
+        - Nivel de Transporte
+            - Prove comunicacao transparente e confiavel entre os pontos envolvidos na comunicacao
+            - Prove ordenacao 
+      
+        - Nivel de sessao: 
+            - Tempo/periodo na qual o usuario interage com o sistema 
+          
+        - Nivel de Apresentacao:
+            - Prove independencia para as aplicacoes em relacao aos diferentes formas de representacao de dados 
+                - Responsavel por fazer a conversao de um tipo de dados desconhecido em conhecido 
+                
+        - Nivel de Aplicacao: 
+             - Email, Transferencia de arquivos, servico de diretorios, ... 
+         
+   * Modelos de Camadas 
+      - Aplicacao 
+      - Transporte 
+      - Rede 
+      - Enlace
+      - Fisica 
+    
+      - Comunicao Vertical 
+          - Cada nivel comunicase apenas com camadas adjacentes 
+          - Dentro do mesmo dispositivo
+      
+      - Comunicao Horizontal  
+          - Camadas   adicionam informacoes de controle no cabecalho da mensagem 
+          - No destino, cada camada processa o cabecalho referente a sua camada no host de origem 
+          
+   
+   * Atrasos de comunicacao 
+      
+      - Processamento 
+          - Dproc: Tempo para o processamento do cabecalho do pacote 
+      
+      - Enfileramento 
+          - Dqueue: Tempo que o pacote fica na fila ate entrar no processo de Transmissao do pacote 
+      
+      - Transmissao 
+          - Dtrans: Tempo que leva para todo o pacote estar ponto para ser transmitido(L/R)                    
+      
+      - Propagacao 
+           - Dprop: Tempo que o pacote leva para chegar do roteador(A) no reteador(B), 
+                    varia de acordo com o meio fisico utilizado para fazer a propagacao. 
+                    Calculo: Distancia entre os dois roteadores(A,B) dividida pela velocidade de propagacao do meio fisico
+                    Calculo: D/S /// D == Distancia //// S = Velocidade 
+                    
+      - Atraso nodal é igual a soma de todos os atrasos acima 
+      
+   * Atraso de Transmissão x Atraso de Propagação
+          – Atraso de transmissão: 
+             - quantidade de tempo exigida para o roteador “empurrar” o pacote. 
+             É uma função do comprimento do pacote e da taxa de transmissão do link, 
+             mas não tem relação com a distância entre dois roteadores.
+        
+        – Atraso de propagação: 
+             - tempo que um bit leva para propagar de um roteador ao seguinte. 
+             É uma função da distância entre os dois roteadores, 
+             mas não tem relação com o comprimento do pacote, nem com a taxa de transmissão da ligação.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
 
 
