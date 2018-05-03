@@ -1,0 +1,7 @@
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\bin\Debug\chatSocketClient.exe.config
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\bin\Debug\chatSocketClient.exe
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\bin\Debug\chatSocketClient.pdb
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\obj\Debug\chatSocketClient.csprojResolveAssemblyReference.cache
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\obj\Debug\chatSocketClient.csproj.CoreCompileInputs.cache
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\obj\Debug\chatSocketClient.exe
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketClient\chatSocketClient\obj\Debug\chatSocketClient.pdb
