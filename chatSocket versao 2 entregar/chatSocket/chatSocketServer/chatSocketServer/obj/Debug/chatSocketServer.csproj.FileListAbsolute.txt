@@ -1,0 +1,9 @@
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\bin\Debug\chatSocketServer.exe.config
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\bin\Debug\chatSocketServer.exe
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\bin\Debug\chatSocketServer.pdb
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\obj\Debug\chatSocketServer.csprojResolveAssemblyReference.cache
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\obj\Debug\chatSocketServer.csproj.CoreCompileInputs.cache
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\obj\Debug\chatSocketServer.exe
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\obj\Debug\chatSocketServer.pdb
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\bin\Debug\Newtonsoft.Json.dll
+C:\RAUBER\UNISINOS\REDES DE COMPUTADOR\chatSocket\chatSocketServer\chatSocketServer\obj\Debug\chatSocketServer.csproj.CopyComplete
